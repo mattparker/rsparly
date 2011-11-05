@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Test page</title>
+<script src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script>
+</head>
+<body>
+
+
+	<h1>Test resource list</h1>
+
+	<div id="l"></div>
+
+
+	<script type="text/javascript">
+
+		YUI({
+			'modules': {
+				'parlyresourcelist': {
+					'fullpath': 'http://localhost/rsparly/js/parlyresourcelist.js',
+					'requires': ['model-list', 'base', 'io']
+					},
+				'parlyresource': {
+					'fullpath': 'http://localhost/rsparly/js/parlyresource.js',
+					'requires': ['model', 'base']
+				}
+			}
+
+				}).use('model-list', 'base', 'parlyresourcelist', 'parlyresource', function (Y) {
+					
+					console.log(Y);
+					var x = new Y.ParlyresourceList();	
+					var y = new Y.Parlyresource();
+
+			
+		});
+	</script>
+</body>
+</html>
