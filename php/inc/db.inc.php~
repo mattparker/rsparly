@@ -1,0 +1,10 @@
+<?php
+/**
+ * Some globals for the database connection
+ *
+ */
+
+define ("PARLY_SERVER", "");
+define ("PARLY_USER", "");
+define ("PARLY_PASSWORD", "");
+define ("PARLY_DB", "");

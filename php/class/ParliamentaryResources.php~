@@ -7,12 +7,6 @@
  * It'll do a title and summary fulltext search first, then
  * a LIKE() search if the first one doesn't give anything.
  *
- * Assumes globals set for database:
- * PARLY_SERVER
- * PARLY_USER
- * PARLY_PASSWORD
- * PARLY_DB
- *
  */
 
  
