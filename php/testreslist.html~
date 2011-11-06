@@ -17,19 +17,39 @@
 			'modules': {
 				'parlyresourcelist': {
 					'fullpath': 'http://localhost/rsparly/js/parlyresourcelist.js',
-					'requires': ['model-list', 'base', 'io']
+					'requires': ['model-list', 'base', 'io', 'json']
+					},
+				'parlyresourcelistview': {
+					'fullpath': 'http://localhost/rsparly/js/parlyresourcelistview.js',
+					'requires': ['view', 'base']
 					},
 				'parlyresource': {
 					'fullpath': 'http://localhost/rsparly/js/parlyresource.js',
 					'requires': ['model', 'base']
+				},
+				'parlyresourceview': {
+					'fullpath': 'http://localhost/rsparly/js/parlyresourceview.js',
+					'requires': ['view', 'base', 'substitute']
 				}
 			}
 
-				}).use('model-list', 'base', 'parlyresourcelist', 'parlyresource', function (Y) {
+				}).use('model-list', 'array-extras', 'base', 'parlyresourcelist', 'parlyresource', 'parlyresourceview', 'parlyresourcelistview', function (Y) {
 					
 					console.log(Y);
-					var x = new Y.ParlyresourceList();	
+					var x = new Y.ParlyresourceList({
+						model: Y.Parlyresource
+					});
+
 					var y = new Y.Parlyresource();
+					var view = new Y.ParlyresourceListView({
+						modelList: x
+					});
+					var mView = new Y.ParlyresourceView();
+					
+					x.load();
+					view.container = Y.one("#l");
+					view.modelView = mView;
+					view.render();
 
 			
 		});
